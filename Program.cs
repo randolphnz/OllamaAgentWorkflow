@@ -13,8 +13,8 @@ try
     Workflow workflow = AgentWorkflowBuilder.BuildSequential(writer, editor);
     AIAgent workflowAgent = workflow.AsAgent();
 
-    string topic = "A day in Auckland New Zealand.";
-    Console.WriteLine($"--- Starting workflow for Topic {topic} ---\n");
+    string topic = "A day in longyou county in Zhejiang province China.";
+    Console.WriteLine($"--- Starting workflow for topic {topic} ---\n");
     AgentRunResponse response = await workflowAgent.RunAsync(topic);
     Console.WriteLine("--- Final Output ---");
     Console.WriteLine(response.Text);
