@@ -5,7 +5,7 @@ using OllamaSharp;
 try
 {
     Uri ollamaUri = new Uri("http://localhost:11434");
-    string modelName = "llama2:7b";
+    string modelName = "deepseek-r1:latest";
     OllamaApiClient ollamaClient = new OllamaApiClient(ollamaUri, modelName);
 
     ChatClientAgent writer = new ChatClientAgent(ollamaClient, name: "Writer", instructions: "you write engaging stories based on a topic. Be creative, positive, and keep it under 200 words.");
