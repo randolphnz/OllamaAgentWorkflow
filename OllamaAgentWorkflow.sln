@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36705.20 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OllamaAgentWorkflow", "OllamaAgentWorkflow.csproj", "{6854A33A-65ED-7A23-CC37-0120C785B3BB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6854A33A-65ED-7A23-CC37-0120C785B3BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6854A33A-65ED-7A23-CC37-0120C785B3BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6854A33A-65ED-7A23-CC37-0120C785B3BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6854A33A-65ED-7A23-CC37-0120C785B3BB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {96A7B261-8AB3-44C3-99B0-19B55CAC9CF9}
+	EndGlobalSection
+EndGlobal
