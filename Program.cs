@@ -1,20 +1,27 @@
 ﻿using Microsoft.Agents.AI;
 using Microsoft.Agents.AI.Workflows;
 using OllamaSharp;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration.Json;
+
+IConfigurationRoot configBuilder = new ConfigurationBuilder().AddJsonFile("appconfig.json").Build();
+IConfigurationSection configSection = configBuilder.GetSection("AppSettings");
+string uri = configSection["OllamaURI"] ?? throw new Exception("OllamaURI not found in configuration.");
+string modelName = configSection["ModelName"] ?? throw new Exception("ModelName not found in configuration.");
+string writerInstructions = configSection["WriterAgentInstructions"] ?? throw new Exception("WriterInstructions not found in configuration.");
+string editorInstructions = configSection["EditorAgentInstructions"] ?? throw new Exception("EditorInstructions not found in configuration.");
+Uri ollamaUri = new Uri(uri);
 
 try
-{
-    Uri ollamaUri = new Uri("http://localhost:11434");
-    string modelName = "deepseek-r1:latest";
-    OllamaApiClient ollamaClient = new OllamaApiClient(ollamaUri, modelName);
-
-    ChatClientAgent writer = new ChatClientAgent(ollamaClient, name: "Writer", instructions: "you write engaging stories based on a topic. Be creative, positive, and keep it under 200 words.");
-    ChatClientAgent editor = new ChatClientAgent(ollamaClient, name: "Editor", instructions: "you review a story for clarity, grammar, and style, then refine it.");
+{   
+    OllamaApiClient ollamaClient = new OllamaApiClient(ollamaUri, modelName);    
+    ChatClientAgent writer = new ChatClientAgent(ollamaClient, name: "Writer", instructions: writerInstructions);   
+    ChatClientAgent editor = new ChatClientAgent(ollamaClient, name: "Editor", instructions: editorInstructions);
     Workflow workflow = AgentWorkflowBuilder.BuildSequential(writer, editor);
     AIAgent workflowAgent = workflow.AsAgent();
 
-    string topic = "A day in longyou county in Zhejiang province China.";
-    Console.WriteLine($"--- Starting workflow for topic {topic} ---\n");
+    string topic = "A day in Hangzhou Zhejiang province China.";
+    Console.WriteLine($"--- Starting to write a story for topic '{topic}' ---\n");
     AgentRunResponse response = await workflowAgent.RunAsync(topic);
     Console.WriteLine("--- Final Output ---");
     Console.WriteLine(response.Text);
