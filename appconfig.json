@@ -2,8 +2,9 @@
   "AppSettings": {
     "OllamaURI": "http://localhost:11434",
     "ModelName": "deepseek-r1:latest",
-    "WriterAgentInstructions": "write engaging stories in Chinese based on a topic. Be creative, positive, and keep it under 100 words.",
-    "EditorAgentInstructions": "review a story for clarity, grammar, and style, then refine it.",
+    "DateExtractorInstructions": "Please extract the date info with yyyy-MM-dd format from a sentence.",
+    "MCPProjectPath": "C:\\Users\\rando\\source\\GoogleCalendarMCP\\GoogleCalendarMCP.csproj",
+    "MCPProjectName": "GoogleCalendarMCP",
     "EnableLogging": true
   }
 }
