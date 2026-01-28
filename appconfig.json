@@ -1,7 +1,7 @@
 {
   "AppSettings": {
     "OllamaURI": "http://localhost:11434",
-    "ModelName": "deepseek-r1:latest",
+    "ModelName": "llama3.2:3b",
     "DateExtractorInstructions": "Please extract the date info with yyyy-MM-dd format from a sentence.",
     "MCPProjectPath": "C:\\Users\\rando\\source\\GoogleCalendarMCP\\GoogleCalendarMCP.csproj",
     "MCPProjectName": "GoogleCalendarMCP",
